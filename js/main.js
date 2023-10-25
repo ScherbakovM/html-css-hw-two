@@ -176,10 +176,13 @@ function getHeart() {
         autoplay: false, // Должна ли анимация начать воспроизведение автоматически
     });
     let lottieContainer = document.getElementById('lottie_container');
+    let quantityLikes = document.getElementById('quantity_likes');
     animation.goToAndStop(30, true);
+    quantityLikes.style.opacity = 1;
     lottieContainer.style.opacity = 1;
     lottieContainer.addEventListener('click', function() {
         animation.goToAndPlay(0, true); // Запуск анимации с начала при клике
+        quantityLikes.value = parseInt(quantityLikes.value) + 1;
     });
 } 
 

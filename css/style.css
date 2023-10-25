@@ -344,6 +344,11 @@ img { pointer-events: none; }
     transition: all 400ms cubic-bezier(.47,1.64,.41,.8);
 }
 
+#quantity_likes {
+    opacity: 0;
+    transition: all 400ms cubic-bezier(.47,1.64,.41,.8);
+}
+
 .chrome {
     width: 400px;
     height: 300px;
