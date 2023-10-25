@@ -1,3 +1,5 @@
+import lottie from 'lottie-web';
+
 window.onload = function () {
     var menu = document.querySelector('.menu');
     var links = menu.getElementsByTagName('a');
@@ -11,6 +13,7 @@ window.onload = function () {
         }
     }
 }
+
 
 window.addEventListener('load', function () {
     let url = window.location.href;
@@ -30,12 +33,25 @@ window.addEventListener('load', function () {
         let dev = document.getElementById('dev');
         let bio = document.getElementById('bio');
         let safari = document.getElementById('safari');
-        let viteIcon = this.document.getElementById('vite_icon');
-        let reactIcon = this.document.getElementById('react_icon');
+        let chrome = document.getElementById('chrome');
+        let viteIcon = document.getElementById('vite_icon');
+        let reactIcon = document.getElementById('react_icon');
+        let lottie = document.getElementById('lottie_icon');
+
+        setTimeout(function () {
+            lottie.style.transform = 'translateX(0) rotate(-90deg)';
+        }, 100);
 
         setTimeout(function () {
             name.style.opacity = '1';
         }, 500); // изменить прозрачность через 0.5секунду
+
+        setTimeout(function () {
+            lottie.style.transform = 'translateX(0) rotate(0deg)';
+            lottie.style.transform = 'translateY(0) rotate(0deg)';
+
+        }, 600);
+
 
         setTimeout(function () {
             dev.style.opacity = '1';
@@ -51,17 +67,30 @@ window.addEventListener('load', function () {
         }, 2300);
 
         setTimeout(function () {
+            lottie.style.transform = 'translateY(' + (- window.innerHeight - 100) + 'px)';
+        }, 2300);
+
+        setTimeout(function () {
             safari.style.opacity = '1';
+            chrome.style.opacity = '1';
+            
+            chrome.style.transform = 'translateY(0)';
             safari.style.transform = 'translateY(0)';
             safari.style.transform = 'rotate(10deg)';
         }, 2700);
+
         setTimeout(function () {
-            setDragable();
+            setDragable('safari');
+            setDragable('chrome')
         }, 3100);
 
         setTimeout(function () {
+            lottie.remove();
+        }, 3300);
+        setTimeout(function () {
+            getHeart();
             rotateIcon();
-        }, 5000);
+        }, 2500);
 
     }
 
@@ -92,7 +121,7 @@ window.addEventListener('load', function () {
 
 
 function rotateIcon() {
-    let reactIcon = this.document.getElementById('react_icon');
+    let reactIcon = document.getElementById('react_icon');
     reactIcon.style.animation = 'spin 3s linear infinite';
     let styleSheet = document.styleSheets[0];
     styleSheet.insertRule(`
@@ -105,28 +134,28 @@ function rotateIcon() {
 
 
 
-function setDragable() {
-    let draggableElement = document.getElementById('safari');
+function setDragable(id) {
+    let draggableElement = document.getElementById(id);
     let offsetX, offsetY, isDown = false;
     draggableElement.style.transition = 'none';
     // Обработчик события mousedown
     draggableElement.addEventListener('mousedown', function (event) {
-        
+
         offsetX = event.clientX - draggableElement.getBoundingClientRect().left;
         offsetY = event.clientY - draggableElement.getBoundingClientRect().top;
         isDown = true;
         draggableElement.style.border = '3px solid #228dff84';
     });
 
-    
+
     // Обработчик события mousemove
     document.addEventListener('mousemove', function (event) {
         if (isDown) {
-            
+
             draggableElement.style.position = 'absolute';
             draggableElement.style.left = (event.clientX - offsetX) + 'px';
             draggableElement.style.top = (event.clientY - offsetY - 60) + 'px';
-            
+
         }
     });
 
@@ -136,3 +165,24 @@ function setDragable() {
         draggableElement.style.border = 'none';
     });
 }
+
+
+function getHeart() {
+    let animation = lottie.loadAnimation({
+        container: document.getElementById('lottie_container'), // ID элемента контейнера
+        path: '/lottie/heart.json', // Путь к файлу JSON с анимацией
+        renderer: 'svg', // Формат рендеринга анимации
+        loop: false, // Должна ли анимация зацикливаться
+        autoplay: false, // Должна ли анимация начать воспроизведение автоматически
+    });
+    let lottieContainer = document.getElementById('lottie_container');
+    animation.goToAndStop(30, true);
+    lottieContainer.style.opacity = 1;
+    lottieContainer.addEventListener('click', function() {
+        animation.goToAndPlay(0, true); // Запуск анимации с начала при клике
+    });
+} 
+
+
+
+

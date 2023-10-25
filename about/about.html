@@ -31,6 +31,9 @@
                     нравится вносить свой вклад в проекты с открытым исходным кодом и изучать последние технологические
                     тренды.
                 </p>
+                <div class="like_or">
+                    <div id="lottie_container" class="lottie_heart"></div>
+                </div>
             </div>
             <div id="safari" class="safari">
                 <div class="safari-header">
@@ -50,9 +53,35 @@
                     </div>
                 </div>
             </div>
+            <div id="chrome" class="chrome">
+                <div class="controls">
+                    <div class="close"></div>
+                    <div class="minimize"></div>
+                    <div class="expand"></div>
+                    <input placeholder="text" type="text" class="url-bar" value="https://www.youtube.com">
+                </div>
+                <div class="youtube">
+                    <div class="video">
+                        <div class="like"></div>
+                        <div class="dislike"></div>
+                        <div class="views">12345 просмотров</div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
         </div>
+
+        <dotlottie-player id="lottie_icon" class="lottie_icon"
+            src="https://lottie.host/16b03708-d5cb-4987-b4df-4342e0f20300/9nlPyNXWaC.json" background="transparent"
+            speed="1" style="width: 300px; height: 300px;" loop autoplay>
+        </dotlottie-player>
     </div>
-    <script src="/js/main.js"></script>
+    <script defer type="module" src="/js/main.js"></script>
+    <script defer src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+        type="module"></script>
+
 </body>
 
 </html>
