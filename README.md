@@ -10,6 +10,7 @@ you can move blocks around the container
 
 **page request**
 
-<img width="1920" alt="image" src="https://github.com/ScherbakovM/html-css-hw-two/assets/109952823/fc3c9f12-ef98-4a06-8e94-5aab54936808">
+<img width="1920" alt="image" src="https://github.com/ScherbakovM/html-css-hw-two/assets/109952823/cf8660a4-39ed-47ec-ae85-dd10cc37d567">
+
 
 
